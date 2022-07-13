@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet, Alert, TouchableOpacity, TextInput } from "react-native-web";
-
 import { alterarFruta, deletarFruta } from './Modelfrutas';
 
 export default function AlterarFruta({navigation}) {
-    const [uid, setuid] = useState('');
-    const [fruta, setfruta] = useState('');
-    const [valor, setvalor] = useState('');
-    const [foto, setfoto] = useState('');
+    const [uidp, setUidp] = useState('');
+    const [frutap, setFrutap] = useState('');
+    const [valorp, setValorp] = useState('');
+    const [fotop, setFotop] = useState('');
 
     async function alterar() {
-        const resultado = await alterarFruta(uid, fruta, valor, foto);
+        const resultado = await alterarFruta(uidp, frutap, valorp, fotop);
 
         if (resultado == 'Sucesso') {
             Alert.alert("Fruta alterada com sucesso!!");
@@ -37,25 +36,25 @@ export default function AlterarFruta({navigation}) {
                 value={uid}
                 placehilder="digite o uid fruta"
                 style={styles.textInput}
-                onChangeText={setuid}
+                onChangeText={setUidp}
             />
             <TextInput
                 value={fruta}
                 placehilder="digite o nome da fruta"
                 style={styles.textInput}
-                onChangeText={setfruta}
+                onChangeText={setFrutap}
             />
             <TextInput
                 value={valor}
                 placehilder="digite o valor da fruta"
                 style={styles.textInput}
-                onChangeText={setvalor}
+                onChangeText={setValorp}
             />
             <TextInput
                 value={foto}
                 placehilder="coloque o caminho da fruta"
                 style={styles.textInput}
-                onChangeText={setfoto}
+                onChangeText={setFotop}
             />
             <TouchableOpacity style={styles.btnAteraFruta} onPress={alterar}>
                 <Text style ={styles.txtBottonAlt}>Alterar</Text>

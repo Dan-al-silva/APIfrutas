@@ -19,20 +19,20 @@ export async function pesquisarNomeFruta(nomeFruta) {
     }
 }
 
-export async function salvarNovaFruta(uid,fruta,valor,foto){
+export async function salvarNovaFruta(uidp,frutap,valorp,fotop){
     try{
         await Api.post(`/hortfruit`,{
-        uid: uid,
-        fruta: fruta,
-        valor: valor,
-        foto: foto,
+        uid: uidp,
+        fruta: frutap,
+        valor: valorp,
+        foto: fotop, 
     });
     return 'Sucesso';
-    }catch(error){
+
+    }catch(error) {
         console.log();
         return[];
     }
-
 }
 
 export async function alterarFruta(uid, fruta, valor, foto){

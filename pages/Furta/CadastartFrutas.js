@@ -3,19 +3,20 @@ import { Text, View, StyleSheet, Alert, TouchableOpacity, TextInput } from "reac
 import { salvarNovaFruta } from './Modelfrutas';
 
 
-export default function CadastarFruta() {
-    const [uid, setuid] = useState('');
-    const [fruta, setfruta] = useState('');
-    const [valor, setvalor] = useState('');
-    const [foto, setfoto] = useState('');
+export default function CadastarFruta({navigation}) {
+    const [uidp, setUidp] = useState('');
+    const [frutap, setFrutap] = useState('');
+    const [valorp, setValorp] = useState('');
+    const [fotop, setFotop] = useState('');
 
     async function cadastro() {
-        const resultado = await salvarNovaFruta(uid, fruta, valor, foto)
+        const resultado = await salvarNovaFruta(uidp, frutap, valorp, fotop)
 
         if (resultado == 'Sucesso') {
             Alert.alert("Fruta cadastrata com sucesso!!");
         } else {
             Alert.alert('Erro ao cadastrar fruta');
+            navigation.goBack();
         }
     }
 
@@ -23,28 +24,28 @@ export default function CadastarFruta() {
         <View style={styles.container}>
 
             <TextInput
-                value={uid}
+                value={uidp}
                 placeholder="digite o uid fruta"
                 style={styles.textInput}
-                onChangeText={setuid}
+                onChangeText={setUidp}
             />
             <TextInput
-                value={fruta}
+                value={frutap}
                 placeholder="digite o nome da fruta"
                 style={styles.textInput}
-                onChangeText={setfruta}
+                onChangeText={setFrutap}
             />
             <TextInput
-                value={valor}
+                value={valorp}
                 placeholder="digite o valor da fruta"
                 style={styles.textInput}
-                onChangeText={setvalor}
+                onChangeText={setValorp}
             />
             <TextInput
-                value={foto}
+                value={fotop}
                 placeholder="coloque o caminho da fruta"
                 style={styles.textInput}
-                onChangeText={setfoto}
+                onChangeText={setFotop}
             />
             <TouchableOpacity style={styles.btnCadastartFruta} onPress={cadastro}>
                 <Text style ={styles.txtBottonCad}>Cadastar</Text>
