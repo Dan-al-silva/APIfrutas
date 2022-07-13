@@ -1,0 +1,31 @@
+{
+    "hortfruit":[ 
+        {
+         "uid": 1,
+         "fruta":"Morango",
+         "valor": "R$:20,40",
+         "foto":"./assets/img/morango.jpg"
+        },
+
+        {
+         "uid":2,
+         "fruta":"Banana",
+         "valor":"R$ 2,50",
+         "foto":"./assets/img/banana.jpg" 
+        },
+
+        {
+         "uid":3,
+         "fruta":"abacaxi",
+         "valor":"R$ 10,50",
+         "foto":"./assets/img/abaxaxi.jpg"  
+        },
+
+        {
+         "uid":4,
+         "fruta":"Laranja",
+         "valor":"R$ 5,50",
+         "foto":"./assets/img/laranja.jpg" 
+        }
+    ]
+}
