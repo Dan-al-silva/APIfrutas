@@ -3,13 +3,13 @@ import { Text, View, StyleSheet, Alert, TouchableOpacity, TextInput } from "reac
 import { alterarFruta, deletarFruta } from './Modelfrutas';
 
 export default function AlterarFruta({navigation}) {
-    const [uidp, setUidp] = useState('');
+    const [idp, setIdp] = useState('');
     const [frutap, setFrutap] = useState('');
     const [valorp, setValorp] = useState('');
     const [fotop, setFotop] = useState('');
 
     async function alterar() {
-        const resultado = await alterarFruta(uidp, frutap, valorp, fotop);
+        const resultado = await alterarFruta(idp, frutap, valorp, fotop);
 
         if (resultado == 'Sucesso') {
             Alert.alert("Fruta alterada com sucesso!!");
@@ -20,7 +20,7 @@ export default function AlterarFruta({navigation}) {
     }
 
     async function deletar(){
-        const resultado = await deletarFruta(uid);
+        const resultado = await deletarFruta(idp, frutap, valorp, fotop);
 
         if (resultado == 'Sucesso') {
             Alert.alert("Fruta deletadas com sucesso!!");
@@ -31,28 +31,28 @@ export default function AlterarFruta({navigation}) {
     
     return(
         <View style={styles.container}>
-
+            
             <TextInput
-                value={uid}
-                placehilder="digite o uid fruta"
+                value={idp}
+                placeholder="digite o uid fruta"
                 style={styles.textInput}
-                onChangeText={setUidp}
+                onChangeText={setIdp}
             />
             <TextInput
-                value={fruta}
-                placehilder="digite o nome da fruta"
+                value={frutap}
+                placeholder="digite o nome da fruta"
                 style={styles.textInput}
                 onChangeText={setFrutap}
             />
             <TextInput
-                value={valor}
-                placehilder="digite o valor da fruta"
+                value={valorp}
+                placeholder="digite o valor da fruta"
                 style={styles.textInput}
                 onChangeText={setValorp}
             />
             <TextInput
-                value={foto}
-                placehilder="coloque o caminho da fruta"
+                value={fotop}
+                placeholder="coloque o caminho da fruta"
                 style={styles.textInput}
                 onChangeText={setFotop}
             />
@@ -63,7 +63,7 @@ export default function AlterarFruta({navigation}) {
             <TouchableOpacity style={styles.btnDeletartFruta} onPress={deletar}>
                 <Text style ={styles.txtBottonDel}>Excluir</Text>
             </TouchableOpacity>
-        </View>
+            </View>
     );
 }
 
@@ -71,6 +71,21 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         backgroundColor:'#e9c46a',
+        
+    },
+    caixa:{
+        
+        width:'50%',
+        fontSize:25,
+        backgroundColor:'#60944EEB',
+        padding:5,
+        color:'white',
+        borderRadius:10,
+        marginBottom:10,
+        textAlign:'center',
+    },
+    textInput:{
+        textAlign:'center',
     }
 })
 

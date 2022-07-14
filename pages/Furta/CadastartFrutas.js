@@ -4,13 +4,13 @@ import { salvarNovaFruta } from './Modelfrutas';
 
 
 export default function CadastarFruta({navigation}) {
-    const [uidp, setUidp] = useState('');
+    const [idp, setIdp] = useState('');
     const [frutap, setFrutap] = useState('');
     const [valorp, setValorp] = useState('');
     const [fotop, setFotop] = useState('');
 
     async function cadastro() {
-        const resultado = await salvarNovaFruta(uidp, frutap, valorp, fotop)
+        const resultado = await salvarNovaFruta(idp, frutap, valorp, fotop)
 
         if (resultado == 'Sucesso') {
             Alert.alert("Fruta cadastrata com sucesso!!");
@@ -24,10 +24,10 @@ export default function CadastarFruta({navigation}) {
         <View style={styles.container}>
 
             <TextInput
-                value={uidp}
+                value={idp}
                 placeholder="digite o uid fruta"
                 style={styles.textInput}
-                onChangeText={setUidp}
+                onChangeText={setIdp}
             />
             <TextInput
                 value={frutap}

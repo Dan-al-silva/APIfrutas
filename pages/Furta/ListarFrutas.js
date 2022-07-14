@@ -26,15 +26,22 @@ export default function ListarFrutas({navigation}) {
 
 </TouchableOpacity>
 
+
+<TouchableOpacity style={styles.btncadf}>
+
+    <Text style= {styles.TxtFrutaGO} onPress={()=> navigation.navigate('Alterar')}>Alterar Frutas</Text>
+
+</TouchableOpacity>
+
           <FlatList
           data={dadosFrutas}
-          keyExtractor={dadosFrutas => dadosFrutas.uid}
+          keyExtractor={dadosFrutas => dadosFrutas.id}
           renderItem={({ item })=>
 
         <View>
-          <TouchableOpacity onPress={()=> navigation.navigate('Alterar')}>
+          <TouchableOpacity>
             <View style={styles.botaoFrutas} >
-            <Text style={styles.txtBotao} >{item.uid}</Text>
+            <Text style={styles.txtBotao} >{item.id}</Text>
             <Text style={styles.txtFruta}>{item.fruta}</Text>
             <Text style={styles.txtValor}>{item.valor}</Text>
             </View>

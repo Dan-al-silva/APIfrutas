@@ -19,10 +19,10 @@ export async function pesquisarNomeFruta(nomeFruta) {
     }
 }
 
-export async function salvarNovaFruta(uidp,frutap,valorp,fotop){
+export async function salvarNovaFruta(idp,frutap,valorp,fotop){
     try{
         await Api.post(`/hortfruit`,{
-        uid: uidp,
+        id: idp,
         fruta: frutap,
         valor: valorp,
         foto: fotop, 
@@ -35,24 +35,24 @@ export async function salvarNovaFruta(uidp,frutap,valorp,fotop){
     }
 }
 
-export async function alterarFruta(uid, fruta, valor, foto){
+export async function alterarFruta(idp, frutap, valorp, fotop){
     try{
-        await Api.put(`/hortfruit/${uid}`,{
-            uid: uid,
-            fruta: fruta,
-            valor: valor,
-            foto: foto,            
+        await Api.put(`/hortfruit/${idp}`,{
+            id: idp,
+            fruta: frutap,
+            valor: valorp,
+            foto: fotop,            
         });
         return 'Sucesso';
     }catch (error){
         console.log(error)
-        return[]
+        return[];
     }
 }
 
-export async function deletarFruta(uid){
+export async function deletarFruta(idp){
     try{
-        await Api.delete(`/hortfruit/${uid}`);
+        await Api.delete(`/hortfruit/${idp}`);
         return 'Sucesso';
     }catch(error){
         console.log(error);
